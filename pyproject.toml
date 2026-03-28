@@ -1,0 +1,86 @@
+# ============================================
+# pyproject.toml - SecureBank / Bank Management System
+# PEP 621 compliant + modern best practices
+# ============================================
+
+[build-system]
+requires = ["setuptools>=75.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bank_mgmt_system"
+version = "0.1.0"
+description = "SecureBank - Bank Management System with domain, services, persistence, routing, and CLI menu."
+readme = "README.md"
+requires-python = ">=3.12"
+authors = [
+    { name = "Joseph Bevels", email = "n00661116@unf.edu" }
+]
+license = { text = "MIT" }                    # Change if needed
+keywords = ["banking", "finance", "cli", "securebank"]
+
+# Runtime dependencies
+dependencies = [
+    "numpy>=2.0",
+    "pandas>=2.2",
+]
+
+# Optional CLI entry point (uncomment when main.py is ready)
+[project.scripts]
+securebank = "bank_mgmt_system.main:secure_banking_menu"
+
+# Development dependencies
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-cov",
+    "ruff",
+    "black",
+    "mypy",
+]
+
+# ============================================
+# Tool configurations
+# ============================================
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+exclude = [
+    ".git",
+    "__pycache__",
+    "build",
+    "dist",
+    "*.egg-info",
+    ".venv",
+    ".env",
+]
+
+[tool.ruff.lint]
+select = ["E", "F", "B", "I", "W", "C4", "UP", "RUF"]
+ignore = []
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["bank_mgmt_system*"]
+namespaces = false
+
+[tool.distutils.egg_info]
+egg_base = "."
+
+[tool.setuptools.dynamic]
+version = { attr = "bank_mgmt_system.__version__" }   # optional: if you want to manage version in code
+
+# Optional: mypy configuration
+[tool.mypy]
+python_version = "3.12"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true

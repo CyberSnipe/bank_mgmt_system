@@ -1,0 +1,2 @@
+[console_scripts]
+securebank = bank_mgmt_system.main:secure_banking_menu
