@@ -1,0 +1,86 @@
+
+# ===========================================
+# SecureBank - Bank Management System
+# .gitignore - Python + modern tooling
+# ============================================
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+.installed.cfg
+*.egg
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+.env/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.coverage.*
+coverage.xml
+*.cover
+
+# Ruff / Black / mypy caches
+.ruff_cache/
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# IDE / Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Temporary / build artifacts
+tmp/
+temp/
+
+# Jupyter Notebooks (if you ever use them)
+.ipynb_checkpoints/
+
+# Environment variables / secrets (very important for a bank system!)
+.env
+*.env
+secrets.toml
+config/local*
+
+# Development databases or local data (uncomment if you create any)
+# *.db
+# *.sqlite3
+
+# ============================================
+# Notes for this project:
+# - We use `egg_base = "."` so *.egg-info appears at root → still ignored
+# - `build/` is ignored (even if it sometimes causes issues with egg_base)
+# - Never commit .env or any credentials
+# ============================================
