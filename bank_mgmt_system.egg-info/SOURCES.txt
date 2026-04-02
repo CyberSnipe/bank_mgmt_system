@@ -5,3 +5,4 @@ bank_mgmt_system.egg-info/dependency_links.txt
 bank_mgmt_system.egg-info/entry_points.txt
 bank_mgmt_system.egg-info/requires.txt
 bank_mgmt_system.egg-info/top_level.txt
+tests/test.py
