@@ -1,35 +1,32 @@
 # BankAccount Class
-
-from src.assignment_3.bank_mgmt_system.src.domain.bank import Bank
-
-class BankAccount(Bank):
+class BankAccount:
     """BankAccount class representing a single bank account with an account number, owner name, and balance."""
-    
+    # TASK 1: BankAccount Class
     def __init__(self, account_number: str, owner_name: str, balance: float = 0.0):
         """Constructor to initialize a bank account with an account number, owner name, and an optional balance (default is 0.0)."""
-        
-        super().__init__(bank_name="SecureBank", accounts={})
-        """ 
-        Initialize the BankAccount with the provided account number, owner name, and balance. 
-        The bank name is set to "SecureBank" and the accounts dictionary is initialized as empty. 
-        """
-        
+        # TODO: Assign the three parameters to instance attributes
         self.account_number = account_number
         self.owner_name = owner_name
         self.balance = balance
         
-    def __str__(self):
+    def __str__(self):          # Return a string like: "Account [ACC001] | Owner: Alice | Balance: $500.0"
         """String representation of the bank account showing the account number, owner name, and balance formatted to two decimal places."""
-        
+        # TODO: Return a string like:
+        # "Account [ACC001] | Owner: Alice | Balance: $500.0"
         return f"Account: [{self.account_number}] | Owner: {self.owner_name}] | Balance: ${self.balance:.2f}"
     
-    def __repr__(self):
+    def __repr__(self):  # Representation of the bank account for debugging purposes, showing the account number, owner name, and balance in a more detailed format.
         """Official representation of the bank account showing the account number, owner name, and balance in a more detailed format."""
         
         return f"BankAccount(account_number='{self.account_number}', owner_name='{self.owner_name}', balance={self.balance})"
-        
+    
+    # TASK 3
     def make_deposit(self, amount: float=0.0):
         """Deposits a specified amount into the bank account. The amount must be a positive dollar amount. Returns a message indicating the result of the deposit."""
+        # TODO: Raise InvalidAmountError if amount <= 0
+        # TODO: Add amount to self.balance
+        # TODO: Call self.log_transaction("DEPOSIT", amount)
+        # TODO: Return the new balance
                                             
         if amount > 0:
             self.balance += amount
@@ -43,6 +40,11 @@ class BankAccount(Bank):
         positive dollar amount and less than or equal to the current balance. 
         Returns a message indicating the result of the withdrawal.
         """
+        # TODO: Raise InvalidAmountError if amount <= 0
+        # TODO: Raise InsufficientFundsError if amount > self.balance
+        # TODO: Subtract amount from self.balance
+        # TODO: Call self.log_transaction("WITHDRAW", amount)
+        # TODO: Return the new balance
         
         if amount > 0:
             if self.balance >= amount:
@@ -52,5 +54,5 @@ class BankAccount(Bank):
             return f"Insufficient funds. Current balance is ${self.balance:.2f}."
             
             
-account1 = BankAccount("ACC001", "Alice", 500.0)
-print(account1)
+bank_accounts = BankAccount("ACC001", "Alice", 500.0)
+print(bank_accounts)

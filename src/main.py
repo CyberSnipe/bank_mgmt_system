@@ -1,116 +1,20 @@
-from src.assignment_3.bank_mgmt_system.src.domain.bank_account import BankAccount
-from src.assignment_3.bank_mgmt_system.src.domain.bank import Bank
+from src.domain.exceptions.insufficient_funds_error import InsufficientFundsError
+from src.domain.exceptions.invalid_amount_error import InvalidAmountError
+from src.domain.bank_account import BankAccount
+from src.domain.bank import Bank
+from src.service.bank_service import BankService
+
+
+
 
 # Bank Management System
-
+# TASK 7: Main Menu
 import os
 import json
 
-
-
-class BankAccount:
-
-    # TASK 1
-    def __init__(self, account_number, owner_name, balance=0.0):
-        # TODO: Assign the three parameters to instance attributes
-        pass
-
-    def __str__(self):
-        # TODO: Return a string like:
-        # "Account [ACC001] | Owner: Alice | Balance: $500.0"
-        pass
-
-    # TASK 3
-    def deposit(self, amount):
-        # TODO: Raise InvalidAmountError if amount <= 0
-        # TODO: Add amount to self.balance
-        # TODO: Call self.log_transaction("DEPOSIT", amount)
-        # TODO: Return the new balance
-        pass
-
-    def withdraw(self, amount):
-        # TODO: Raise InvalidAmountError if amount <= 0
-        # TODO: Raise InsufficientFundsError if amount > self.balance
-        # TODO: Subtract amount from self.balance
-        # TODO: Call self.log_transaction("WITHDRAW", amount)
-        # TODO: Return the new balance
-        pass
-
-    # TASK 4
-    def log_transaction(self, transaction_type, amount):
-        # TODO: Open "transactions.txt" in append mode inside a try block
-        # TODO: Write a line like: [ACC001] DEPOSIT $200.0 | New Balance: $700.0
-        # TODO: Catch OSError and print a message
-        # TODO: Add a finally block that prints "Log attempt complete."
-        pass
-
-    # TASK 5
-    def save_to_file(self, filename):
-        # TODO: Open filename in write mode inside a try block
-        # TODO: Write one line: account_number,owner_name,balance
-        # TODO: Catch IOError and print a message
-        pass
-
-    @classmethod
-    def load_from_file(cls, filename):
-        # TODO: Open filename in read mode inside a try block
-        # TODO: Read and split the line by ","
-        # TODO: Validate that there are exactly 3 parts (raise ValueError if not)
-        # TODO: Convert balance to float
-        # TODO: Return a new BankAccount object using cls(...)
-        # TODO: Catch FileNotFoundError — print message, return None
-        # TODO: Catch ValueError — print message, return None
-        pass
-
-
-
-# TASK 6: Bank Class
-
-class Bank:
-
-    def __init__(self, bank_name):
-        # TODO: Assign bank_name attribute
-        # TODO: Create an empty dictionary called accounts
-        pass
-
-    def add_account(self, account):
-        # TODO: Add account to self.accounts using account_number as key
-        # Hint: self.accounts[account.account_number] = account
-        pass
-
-    def get_account(self, account_number):
-        # TODO: Check if account_number is in self.accounts
-        # TODO: If not found, raise KeyError with a friendly message
-        # TODO: If found, return the account
-        pass
-
-    def show_all_accounts(self):
-        # TODO: If no accounts, print "No accounts found."
-        # TODO: Otherwise, print each account using its __str__
-        pass
-
-    def save_all_accounts(self, filename):
-        # TODO: Open filename in write mode inside a try block
-        # TODO: Write each account as: account_number,owner_name,balance
-        # TODO: Catch IOError and print an error message
-        pass
-
-    @classmethod
-    def load_all_accounts(cls, filename, bank_name="LoadedBank"):
-        # TODO: Create a new Bank object using cls(bank_name)
-        # TODO: Open the file and read line by line
-        # TODO: For each line, split by "," and create a BankAccount
-        # TODO: Add each account to the bank's accounts dictionary
-        # TODO: Catch FileNotFoundError — print message, return empty bank
-        # TODO: Catch ValueError — print message, return empty bank
-        # TODO: Return the bank object
-        pass
-
-
-# TASK 7: Main Menu
-
 def main():
     bank = Bank("SecureBank")
+    #TODO: Load existing accounts from a file if it exists (use Bank.load_all_accounts)
 
     while True:
         print("SecureBank Menu")
