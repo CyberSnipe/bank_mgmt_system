@@ -1,4 +1,6 @@
-from src.domain.bank import Bank
+# BankAccount Class
+
+from src.assignment_3.bank_mgmt_system.src.domain.bank import Bank
 
 class BankAccount(Bank):
     """BankAccount class representing a single bank account with an account number, owner name, and balance."""
