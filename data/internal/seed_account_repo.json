@@ -1,0 +1,33 @@
+[
+    {
+        "account_number": "ACC001",
+        "owner_name": "John Doe",
+        "balance": 15874.75
+    },
+    {
+        "account_number": "ACC002",
+        "owner_name": "Jane Smith",
+        "balance": 25254.53
+    },
+    {
+        "account_number": "ACC003",
+        "owner_name": "Alice Johnson",
+        "balance": 5254.85
+    },
+    {
+        "account_number": "ACC004",
+        "owner_name": "Bob Brown",
+        "balance": 12035.25
+    },
+    {
+        "account_number": "ACC005",
+        "owner_name": "Charlie Davis",
+        "balance": 8214.14
+    },
+    {
+        "account_number": "ACC006",
+        "owner_name": "Diana Evans",
+        "balance": 33254.32
+    }
+]
+
