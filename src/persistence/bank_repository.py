@@ -7,24 +7,6 @@ class BankRepository:
     """Repository for saving and loading all Bank accounts to/from JSON."""
 
     @staticmethod
-    def save_all(bank: Bank, filename: str) -> None:
-        """Save all accounts in the bank to a JSON file."""
-        data = []
-
-        for account in bank.accounts.values():
-            data.append({
-                "account_number": account.account_number,
-                "owner_name": account.owner_name,
-                "balance": account.balance
-            })
-
-        try:
-            with open(filename, "w") as f:
-                json.dump(data, f, indent=4)
-        except OSError as e:
-            raise IOError(f"Failed to save bank data to {filename}: {e}")
-
-    @staticmethod
     def load_all(filename: str, bank_name: str = "LoadedBank") -> Bank:
         """Load all accounts from a JSON file and return a Bank object."""
         file_path = Path(filename)
@@ -55,6 +37,26 @@ class BankRepository:
 
         except (OSError, ValueError, json.JSONDecodeError):
             return Bank(bank_name)
+        
+    @staticmethod
+    def save_all(bank: Bank, filename: str) -> None:
+        """Save all accounts in the bank to a JSON file."""
+        data = []
+
+        for account in bank.accounts.values():
+            data.append({
+                "account_number": account.account_number,
+                "owner_name": account.owner_name,
+                "balance": account.balance
+            })
+
+        try:
+            with open(filename, "w") as f:
+                json.dump(data, f, indent=4)
+        except OSError as e:
+            raise IOError(f"Failed to save bank data to {filename}: {e}")
+
+   
 
 
 

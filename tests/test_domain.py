@@ -7,9 +7,9 @@ from domain.bank import Bank
 
 #Test 1: Basic Account Creation
 print("Test 1: Basic Account Creation")
-acc = BankAccount("ACC001", "Alice", 500.0)
+acc = BankAccount("ACC001", "Alice", 500.00)
 assert str(acc) == "Account: [ACC001] | Owner: Alice] | Balance: $500.00"
-assert repr(acc) == "BankAccount(account_number='ACC001', owner_name='Alice', balance=500.0)"
+assert repr(acc) == "BankAccount(account_number='ACC001', owner_name='Alice', balance=500.00)"
 print("Test sat!")
 
 #Test 2: Valid Deposit

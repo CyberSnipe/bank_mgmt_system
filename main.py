@@ -7,7 +7,7 @@ def main():
     service = BankService(repo)
 
     # Load seed data
-    service.load_bank("data/seed_account_repo.json")
+    service.load_all_accounts("data/seed_account_repo.json")
 
     # Start CLI
     cli_main()

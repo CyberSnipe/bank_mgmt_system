@@ -2,7 +2,7 @@ import json
 from pathlib import Path
 
 class TXTtoJSONConverter:
-    """Convert assignment-style .txt account files into JSON format."""
+    """Convert .txt files into JSON format."""
 
     @staticmethod
     def convert(txt_filename: str, json_filename: str) -> None:

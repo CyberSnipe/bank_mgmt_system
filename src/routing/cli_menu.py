@@ -27,7 +27,7 @@ def main():
             name = input("Owner Name: ").strip()
 
             try:
-                starting = float(input("Starting Balance: ").strip())
+                starting = float(input("Starting Balance: ").strip())       # Create a BankAccount and add it to the bank
                 service.create_account(acc_num, name, starting)
                 print("Account created successfully.")
             except ValueError:
@@ -37,11 +37,12 @@ def main():
         # DEPOSIT
         # ---------------------------------------------------------
         elif choice == "2":
-            acc_num = input("Account Number: ").strip()
+            acc_num = input("Account Number: ").strip()                          
 
             try:
-                amount = float(input("Deposit Amount: ").strip())
-                new_balance = service.deposit(acc_num, amount)
+                acc = service.get_account(acc_num)                               # Get the account using bank.get_account()   
+                amount = float(input("Deposit Amount: ").strip())                # Get the deposit amount from user (convert to float)
+                new_balance = service.deposit(acc_num, amount)                   # Call deposit() and print new balance
                 print(f"Deposit successful. New balance: ${new_balance:.2f}")
             except KeyError as e:
                 print(str(e))
@@ -54,11 +55,12 @@ def main():
         # WITHDRAW
         # ---------------------------------------------------------
         elif choice == "3":
-            acc_num = input("Account Number: ").strip()
+            acc_num = input("Account Number: ").strip()  
 
             try:
-                amount = float(input("Withdrawal Amount: ").strip())
-                new_balance = service.withdraw(acc_num, amount)
+                acc = service.get_account(acc_num)                                # Get the account using bank.get_account()  
+                amount = float(input("Withdrawal Amount: ").strip())              # Get the withdrawal amount from user (convert to float)
+                new_balance = service.withdraw(acc_num, amount)                   # Call withdraw() and print new balance  
                 print(f"Withdrawal successful. New balance: ${new_balance:.2f}")
             except KeyError as e:
                 print(str(e))
@@ -76,7 +78,7 @@ def main():
             acc_num = input("Account Number: ").strip()
 
             try:
-                acc = service.get_account(acc_num)
+                acc = service.get_account(acc_num)                      # Get the account and print its balance
                 print(f"Balance: ${acc.balance:.2f}")
             except KeyError as e:
                 print(str(e))
@@ -85,16 +87,16 @@ def main():
         # SAVE BANK DATA
         # ---------------------------------------------------------
         elif choice == "5":
-            filename = input("Save to filename: ").strip()
-            service.save_bank(filename)
+            filename = input("Save to filename: ").strip()              
+            service.save_all_accounts(filename)                                    # Call bank.save_all_accounts(filename) 
             print("Bank data saved.")
 
         # ---------------------------------------------------------
         # LOAD BANK DATA
         # ---------------------------------------------------------
         elif choice == "6":
-            filename = input("Load from filename: ").strip()
-            service.load_bank(filename)
+            filename = input("Load from filename: ").strip()                
+            service.load_all_accounts(filename)                                     # Call Bank.load_all_accounts() and reassign bank
             print("Bank data loaded.")
 
         # ---------------------------------------------------------

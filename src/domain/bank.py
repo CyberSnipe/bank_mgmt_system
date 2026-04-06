@@ -12,6 +12,10 @@ class Bank:
 
     def __repr__(self):
         return f"Bank(bank_name='{self.bank_name}', accounts={self.accounts})"
+    
+    # ---------------------------------------------------------
+    # ACCOUNT MANAGEMENT
+    # ---------------------------------------------------------
 
     def add_account(self, account: BankAccount):
         """Add a new account to the bank."""
@@ -22,8 +26,11 @@ class Bank:
         if account_number not in self.accounts:
             raise KeyError(f"Account '{account_number}' not found.")
         return self.accounts[account_number]
-
+    
     def list_accounts(self):
         """Return a list of accounts (no printing)."""
-        return list(self.accounts.values())
+        return list(self.accounts.values())  
+    
+
+    
 

@@ -1,7 +1,5 @@
 from domain.bank import Bank
 from domain.bank_account import BankAccount
-from domain.exceptions.invalid_amount_error import InvalidAmountError
-from domain.exceptions.insufficient_funds_error import InsufficientFundsError
 from persistence.bank_repository import BankRepository
 
 class BankService:
@@ -41,11 +39,11 @@ class BankService:
     # PERSISTENCE
     # ---------------------------------------------------------
 
-    def save_bank(self, filename: str):
+    def save_all_accounts(self, filename: str):
         """Save all accounts to JSON via the repository."""
         self.bank_repository.save_all(self.bank, filename)
 
-    def load_bank(self, filename: str):
+    def load_all_accounts(self, filename: str):
         """Load all accounts from JSON via the repository."""
         self.bank = self.bank_repository.load_all(filename, self.bank.bank_name)
         return self.bank
